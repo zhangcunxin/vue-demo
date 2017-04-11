@@ -1,0 +1,8 @@
+body {
+    background: #ffa8f6;
+}
+#qwe {
+    background-image: url(../img/logo.png);
+    width:200px;
+    height: 200px;
+}
