@@ -1,13 +1,15 @@
-//import webpack from "webpack"
 var path = require("path")
 var Webpack = require("webpack")
+var HtmlWebpackPlugin = require("webpack-html-plugin")
 
 module.exports = {
-    entry: "./src/index",
+    entry: {
+        index: "./src/index.js"
+    },
     output: {
         path: path.join(__dirname, "./dist"),
-        filename: "[name].js",
-        publicPath: "./dist/"
+        filename: "[name].[hash].js",
+        publicPath: ""
     },
     devServer: {
         historyApiFallback: true,
@@ -53,6 +55,19 @@ module.exports = {
                     plugins: ['transform-runtime']
                 }
             }
+        }),
+        new HtmlWebpackPlugin({
+            title: "My vue demo",
+            template: "./src/index.html",
+            inject: true
+        }),
+        new Webpack.optimize.UglifyJsPlugin({
+            compress: {
+                unused: true,
+                dead_code: true,
+                warnings: false
+            },
+            comments: false
         })
 
     ],

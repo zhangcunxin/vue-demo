@@ -1,5 +1,5 @@
-import Vue from "vue"
-import app from "./components/app"
+import Vue from "vue";
+import app from "./components/app";
 
 Vue.config.debug = true
-new Vue(app)
+window.app= new Vue(app)
