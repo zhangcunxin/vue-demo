@@ -1,6 +1,8 @@
 var path = require("path")
 var Webpack = require("webpack")
 var HtmlWebpackPlugin = require("webpack-html-plugin")
+require('babel-register')
+require('babel-polyfill')
 
 module.exports = {
     entry: {
@@ -13,9 +15,9 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        hot: false,
+        hot: true,
         inline: true,
-        compress: true,
+        compress: true
     },
     module: {
         rules: [{
@@ -48,11 +50,7 @@ module.exports = {
     plugins: [
         new Webpack.LoaderOptionsPlugin({
             options: {
-                babel: {
-                    presets: ['es2015'],
-                    plugins: ['transform-runtime']
-                },
-                context: '/'
+                context: __dirname
             }
         }),
         new HtmlWebpackPlugin({
@@ -69,11 +67,11 @@ module.exports = {
             comments: false,
             sourceMap: true
         })
-
     ],
     resolve: {
         // require时省略的扩展名，如：require('module') 不需要module.js
         extensions: ['.js', '.vue'],
+        modules: [path.resolve(__dirname, "src"), path.resolve(__dirname, 'packages'), 'node_modules'],
         alias: {
             vue: 'vue/dist/vue.js',
             filter: path.join(__dirname, "./src/filters"),
