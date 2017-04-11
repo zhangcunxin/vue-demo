@@ -1,7 +1,7 @@
 <script>
     export default {
         name: 'app',
-        data() {
+        data: function(){
             return {
                 name: "Cunxinzhang",
                 age: 26
