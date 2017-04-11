@@ -1,6 +1,7 @@
 <script>
     export default {
-        el: "#app",
+        name: 'app',
+        el: '#app',
         data() {
             return {
                 name: "Cunxinzhang",
@@ -19,16 +20,20 @@
 <style lang="sass-loader">
     body {
         background-color: #098;
-        h1 {
-            background-color: #eee;
-            color: red;
-            transform: translate(10%, 10%); /*测试自动添加前缀*/
-        }
-        h1:hover {
-            height: 100px;
-        }
-        h2 {
-            background-color: #999;
-        }
+
+    h1 {
+        background-color: #eee;
+        color: red;
+        transform: translate(10%, 10%); /*测试自动添加前缀*/
+    }
+
+    h1:hover {
+        height: 100px;
+    }
+
+    h2 {
+        background-color: #999;
+    }
+
     }
 </style>

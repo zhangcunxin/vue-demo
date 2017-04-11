@@ -15,7 +15,7 @@ module.exports = {
         historyApiFallback: true,
         hot: false,
         inline: true,
-        grogress: true,
+        compress: true,
     },
     module: {
         rules: [{
